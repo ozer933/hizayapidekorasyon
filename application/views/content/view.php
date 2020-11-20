@@ -3,10 +3,13 @@
         <div class="bread cover" style="background-image: url(public/img/bread-back.png);"></div>
     </section>
 
-    <section class="content clearfix">
-        <h3 class="captionCenter mB0">
-            <span><?= $content->title ?></span>
-        </h3>
+    <div  class="jumbotron-fluid">
+
+        <div class="p-2 bg-dark mb-4">
+            <h3 class="captionCenter  text-center text-white">
+                <span class="bG">HAKKIMIZDA ?</span>
+            </h3>
+        </div>
         <div class="container">
             <div class="content-body clearfix">
                 <div class="row">
@@ -60,7 +63,7 @@
             <div class="clearfix"></div>
             <?php $this->view('share', ['content' => $content]) ?>
         </div>
-    </section>
+    </div>
 
     <?php $this->view('lastbar') ?>
 </main>

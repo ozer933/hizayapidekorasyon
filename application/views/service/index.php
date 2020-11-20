@@ -1,30 +1,28 @@
-<main id="main">
-    <section class="banner clearfix">
-        <div class="bread cover" style="background-image: url(public/img/bread-back.png);"></div>
-    </section>
-
-    <section class="content clearfix">
+    <section class="container">
         <h3 class="captionCenter mB0">
             <span><?= $this->module->arguments->title ?></span>
         </h3>
         <div class="container">
-            <div class="content-body services clearfix">
+            <div class="row">
                 <?php if (! empty($services)): ?>
                     <?php foreach ($services as $service): ?>
-                        <div class="col-md-6 mB30">
-                            <a class="db" href="<?= clink(array('@service', $service->slug, $service->id)) ?>">
-                                <div class="service-box clearfix">
-                                    <img class="trlY svg"
-                                         src="<?= uploadPath($service->icon, 'service/svg') ?>"
-                                         alt="<?= htmlspecialchars($service->title) ?>">
-                                    <div class="text">
-                                        <h4 class="f7"><?= $service->title ?></h4>
-                                        <p>
-                                            <?= $service->summary ?>
-                                        </p>
+                        <div class="col-md-4 mb-2 hoverCss " style="cursor: pointer;">
+                            <div class="col-md-12 border ">
+                                <img class="img-fluid "
+                                     src="<?= uploadPath($service->image, 'service') ?>"
+                                     alt="<?= htmlspecialchars($service->title) ?>">
+
+                                <a   title="<?= $service->title ?>" class="db" href="<?php echo "https://" . $_SERVER['SERVER_NAME'];?>/<?= clink(array('@service', $service->slug, $service->id)) ?>">
+                                    <div class="service-box clearfix">
+                                        <div class="text">
+                                            <h4 class="mt-3 ml-0"><?= $service->title ?></h4>
+                                            <p>
+                                                <?= $service->summary ?>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>

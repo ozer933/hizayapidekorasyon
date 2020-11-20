@@ -1,34 +1,42 @@
+
 <main id="main">
     <section class="banner clearfix">
         <div class="bread cover" style="background-image: url(public/img/bread-back.png);"></div>
     </section>
 
-    <section class="content clearfix news">
-        <h3 class="captionCenter mB0">
-            <span><?= $this->module->arguments->title ?></span>
-        </h3>
+    <div  class="jumbotron-fluid">
+
+        <div class="p-2 bg-dark mb-4">
+            <h3 class="captionCenter  text-center text-white">
+                <span class="bG"> <?= $this->module->arguments->title ?></span>
+            </h3>
+        </div>
         <div class="container">
-            <div class="content-body clearfix">
+            <div class="row">
                 <?php if (! empty($newscast)): ?>
                     <?php foreach ($newscast as $item): ?>
-                        <div class="col-sm-6 col-md-4 mB30">
-                            <div class="news-box clearfix">
+                        <div class="col-md-4 hoverCss  p-2">
+                            <div class="news-box clearfix border ">
                                 <a href="<?= clink(array('@news', $item->slug, $item->id)) ?>">
-                                    <img class="img-responsive"
+                                    <img class="img-fluid" style="width: 100%;"
                                          src="<?= uploadPath($item->image, 'news') ?>"
                                          alt="<?= htmlspecialchars($item->title) ?>">
                                 </a>
+                                <div class="col-md-12 mt-3">
                                 <a href="<?= clink(array('@news', $item->slug, $item->id)) ?>">
                                     <h4 class="eclipse"><?= $item->title ?></h4>
-                                </a>
                                 <p>
-                                    <?= $item->summary ?>
+                                    <?= mb_substr($item->summary,0,120,'UTF-8') ?>
                                 </p>
-                                <div class="time pull-left"><?= $this->date->set($item->date)->dateWithName() ?></div>
-                                <a class="btn1 sm pull-right"
-                                   href="<?= clink(array('@news', $item->slug, $item->id)) ?>">
-                                    Detaya Git
                                 </a>
+                                </div>
+                                <div class="col-md-12 p-2 m-0  bg-dark">
+                                    <a class="btn1 sm pull-right text-white"
+                                       href="<?= clink(array('@news', $item->slug, $item->id)) ?>">
+                                    <div class="time pull-left text-white"><?= $this->date->set($item->date)->dateWithName() ?></div>
+                                        Yazının Devamı ...
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -43,7 +51,7 @@
                 <?php endif; ?>
             </div>
         </div>
-    </section>
+    </div>
 
     <?php $this->view('lastbar') ?>
 </main>

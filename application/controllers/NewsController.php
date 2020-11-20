@@ -20,7 +20,7 @@ class NewsController  extends CI_Controller
             $config = array(
                 'base_url' => clink(array('@news')),
                 'total_rows' => $newsCount,
-                'per_page' => 10
+                'per_page' => 90
             );
 
             $this->load->library('pagination');
@@ -46,6 +46,8 @@ class NewsController  extends CI_Controller
 
     public function view($id)
     {
+
+
         $this->load->model('news');
         $this->lang->load('modules/news');
 

@@ -1,5 +1,10 @@
-##AddHandler application/x-httpd-php56 .php
+###AddHandler application/x-httpd-php56 .php
 RewriteEngine On
+
+RewriteCond %{HTTP_HOST} !^www\.hizayapidekorasyon\.com
+RewriteRule (.*) http://www.hizayapidekorasyon.com/$1 [R=301,L]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteRule ^ index.php [QSA,L]
 RewriteCond $1 !^(public|admin)

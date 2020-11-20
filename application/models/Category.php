@@ -59,6 +59,7 @@ class Category extends  CI_Model
 
     public function getCategoryProjects($key = null)
     {
+
         if ($key === null) return false;
 
         $category = $this->db
@@ -69,6 +70,7 @@ class Category extends  CI_Model
             ->get()
             ->row();
 
+    
         $projects = $this->db
             ->from('projects')
             ->where('projectId', $category->id)

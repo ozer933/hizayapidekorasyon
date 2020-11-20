@@ -1,28 +1,30 @@
 <main id="main">
-    <section class="banner clearfix">
-        <div class="bread cover" style="background-image: url(public/img/bread-back.png);"></div>
-    </section>
+    <div  class="jumbotron-fluid">
 
-    <section class="content clearfix">
-        <h3 class="captionCenter mB0">
-            <span><?= $this->module->arguments->title ?></span>
-        </h3>
+        <div class="p-2 bg-dark mb-4">
+            <h3 class="captionCenter  text-center text-white">
+                <span><?php echo $service->title ?></span>
+            </h3>
+        </div>
+
         <div class="container">
             <div class="content-body clearfix">
                 <div class="service-detail clearfix">
-                    <img class="img-responsive service-detail-img"
+                    <div class="float-right col-md-4 ml-3 img-thumbnail">
+                    <img class="img-fluid "
                          src="<?= uploadPath($service->image, 'service') ?>"
                          alt="<?= htmlspecialchars($service->title) ?>">
-                    <h3 class="service-detail-title">
-                        <?= $service->title ?>
-                    </h3>
-                    <?= $service->detail ?>
+                    </div>
+                    <h3 class="service-detail-title"><?php echo $service->title;?></h3>
+                   <div class="m-4">
+                       <?= $service->detail ?>
+                   </div>
                 </div>
             </div>
 
             <?php $this->view('share', ['content' => $service]) ?>
         </div>
-    </section>
+    </div>
 
     <?php $this->view('lastbar') ?>
 </main>
