@@ -4,7 +4,7 @@ use Sirius\Admin\Manager;
 
 class ContentAdminController extends Manager
 {
-    public $moduleTitle = 'İçerikler';
+    public $moduleTitle = 'Sayfalar';
     public $module = 'content';
     public $table = 'contents';
     public $model = 'content';

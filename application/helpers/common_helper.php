@@ -2,6 +2,8 @@
 
 function clink($segments, $query = null, $saveQuery = false)
 {
+
+
     if ( ! is_array($segments) && strpos($segments, "http") === 0 ) {
         return $segments;
     }

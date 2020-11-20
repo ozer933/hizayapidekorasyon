@@ -4,7 +4,7 @@ use Sirius\Admin\Manager;
 
 class CategoryAdminController extends Manager
 {
-    public $moduleTitle = 'Proje Kategorileri';
+    public $moduleTitle = 'İçerik Kategorileri';
     public $module = 'category';
     public $table = 'categories';
     public $model = 'category';
@@ -15,8 +15,7 @@ class CategoryAdminController extends Manager
         'link' => array('slug', 'id'),
         'language' => true
     );
-
-
+    
     // Arama yapılacak kolonlar.
     public $search = array('title');
 

@@ -4,7 +4,7 @@ use Sirius\Admin\Manager;
 
 class ProjectAdminController extends Manager
 {
-    public $moduleTitle = 'Projeler';
+    public $moduleTitle = 'İcerikler';
     public $module = 'project';
     public $table = 'projects';
     public $model = 'project';

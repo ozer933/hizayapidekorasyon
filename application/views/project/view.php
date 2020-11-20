@@ -2,68 +2,62 @@
     <section class="banner clearfix">
         <div class="bread cover" style="background-image: url(public/img/bread-back.png);"></div>
     </section>
-
-    <section class="content clearfix">
+    <section class="content clearfix ">
         <div class="container">
-            <div class="content-body clearfix">
+            <div class="content-body clearfix  mb-5">
                 <div class="row">
-                   <div class="container">
-					  <h2><?= $project->title ?> hakkında</h2>
-									 
-					<?php $data=$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']; 
-					$data=explode('/', $data);
-					?>
-					  <ol class="breadcrumb">
-						<li><a href="/"><?php echo $data[0]; ?></a></li>
-						<li><a href="/projeler/<?php echo $data[2]; ?>/<?php echo $data[3]; ?>"><?php echo $data[2]; ?></a></li>
-						<li><a href="/">Eklenme Tarihi: <?php echo date('d/m/Y'); ?></a></li>
-							 
-					  </ol>
-					</div>
-                    <div class="col-sm-4 mB30">
+                    <div class="container mt-3 p-0  ">
+                        <?php $data=$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];
+                        $data=explode('/', $data);
+                        ?>
+                        <ol class="breadcrumb bg-dark text-white">
+                            <li><a class="text-white" href="/"><?php echo $data[0]; ?></a></li>
+                            <li><a class="text-white" href="/icerik-detay/<?php echo $data[2]; ?>/<?php echo $data[3]; ?>">/icerik-detay/<?php echo $data[2]; ?>/<?php echo $data[3]; ?></a></li>
+                        </ol>
+                    </div>
 
-                        <div id="project-slide" class="owl-carousel owl-theme clearfix">
-                            <div class="item">
-                                <a class=" db" rel="gallery">
-                                    <img src="<?= uploadPath($project->image, 'project/showcase') ?>"
-                                         alt="<?= htmlspecialchars($project->title) ?>">
-                                </a>
+                    <div class="col-sm-4 mB30  bg-dark pt-5   pb-5  " >
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" alt="<?= htmlspecialchars($project->title) ?>" src="<?= uploadPath($project->image, 'project/showcase') ?>" alt="<?= $project->title ?>">
+                                </div>
+                                <?php $say=0; if (!empty($project->images)): ?>
+                                    <?php foreach ($project->images as $image): ?>
+                                        <div class="carousel-item <?php if($say==0) echo 'active'; ?> ">
+                                            <img class="d-block w-100" alt="<?=  htmlspecialchars($project->title) ?>" src="<?= uploadPath($image->image, 'project/show') ?>" alt="<?= $project->title ?>">
+                                        </div>
+                                        <?php $say++; endforeach; ?>
+                                <?php endif; ?>
                             </div>
-                            <?php if (!empty($project->images)): ?>
-                                <?php foreach ($project->images as $image): ?>
-                                    <div class="item">
-                                        <a class=" db" rel="gallery"
-                                           >
-                                            <img src="<?= uploadPath($image->image, 'project/show') ?>"
-                                                 alt="<?= htmlspecialchars($project->title) ?>">
-                                        </a>
-                                    </div>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
 
-                        <div id="project-slide-thumb" class="owl-carousel owl-theme clearfix">
-                            <div class="item">
-                                <img src="<?= uploadPath($project->image, 'project/thumb') ?>"
-                                     alt="<?= htmlspecialchars($project->title) ?>">
-                            </div>
-                            <?php if (!empty($project->images)): ?>
-                                <?php foreach ($project->images as $image): ?>
-                                    <div class="item">
-                                        <img src="<?= uploadPath($image->image, 'project/thumb') ?>"
-                                             alt="<?= htmlspecialchars($project->title) ?>">
-                                    </div>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </div>
+
+
+
 
                     </div>
-                    
+
                     <div class="col-sm-8 mB30">
                         <div class="project-detail-text">
-                          
-
+                            <h2><?= $project->title ?> </h2>
+                            <hr>
                             <?= $project->detail ?>
+                            <hr>
+                            Eklenme Tarihi: <?php echo date('d/m/Y'); ?>
                         </div>
                     </div>
                 </div>
@@ -73,7 +67,7 @@
     </section>
 
     <?php if (! empty($project->others)): ?>
-        <section class="other-project">
+        <section class="other-project ">
             <h3 class="captionLeft mB0">
                 <div class="container">
                     <span>DİĞER PROJELER</span>

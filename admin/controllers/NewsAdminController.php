@@ -58,7 +58,7 @@ class NewsAdminController extends Manager
             ->uploadInput('imageFile')
             ->minSizes(540, 362)
             ->addProcessSize('normal', 325, 220, 'news', 'thumbnail')
-            ->addProcessSize('big', 540, 362, 'news/big', 'thumbnail');
+            ->addProcessSize('big', 900, 758, 'news/big', 'thumbnail');
 
 
         if ($this->input->post('imageUrl')) {
@@ -94,7 +94,7 @@ class NewsAdminController extends Manager
             ->uploadInput('imageFile')
             ->minSizes(540, 362)
             ->addProcessSize('normal', 325, 220, 'news', 'thumbnail')
-            ->addProcessSize('big', 540, 362, 'news/big', 'thumbnail');
+            ->addProcessSize('big', 900, 758, 'news/big', 'thumbnail');
 
 
         if ($this->input->post('imageUrl')) {

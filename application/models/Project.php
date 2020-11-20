@@ -36,10 +36,11 @@ public function findIds($id)
             ->from('projects')
             ->where('projectId', $id)
             ->where('language', $this->language)
+            ->limit(12)
             ->get()
            ->result();
 
- 
+
 
 
 

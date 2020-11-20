@@ -14,13 +14,15 @@ class HomeController  extends CI_Controller
         $this->load->model('service');
         $this->load->model('news');
 
+
+
         $this->load->view('master', array(
             'view' => 'home',
             'lastProjects' => $this->category->getCategoryProjects('doneProject'),
 			'categoryall' => $this->project->findIds(4),
             'nextProject' => $this->category->getCategory('nextProject'),
             'doneProject' => $this->category->getCategory('lastProject'),
-            'services' => $this->service->all(8),
+            'services' => $this->category->getCategoryProjects('calismalarimiz'),
             'news' => $this->news->all(6),
             'references' => $this->reference->all(),
         ));

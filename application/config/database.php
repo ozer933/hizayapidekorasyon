@@ -50,9 +50,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'kwOeCQWSLyvU';
-$db['default']['database'] = 'hizayapiDB';
+$db['default']['username'] = 'bizimmuh_us';
+$db['default']['password'] = 'Z1gMA9Og0sjP';
+$db['default']['database'] = 'bizimmuh_db';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
